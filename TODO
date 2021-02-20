@@ -1,0 +1,3 @@
+Add ability to read a list of modules and versions to feed into dkms
+
+Find some way to skip generating a boot entry if kerman -a is overwriting an existing kernel
