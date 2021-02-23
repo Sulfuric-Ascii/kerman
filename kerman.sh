@@ -30,7 +30,7 @@ name_kernel() {
 gen_boot() {
     ROOT_PARTUUID="$(lsblk -ro +PARTUUID | grep -w '/' | sed 's/.*\/ //')"
     efibootmgr --disk /dev/sda --part 1 --create --label "Linux-$1" \
-    --loader "/vmlinuz-$1"--unicode "root=PARTUUID=$ROOT_PARTUUID rw" \
+    --loader "/vmlinuz-$1" --unicode "root=PARTUUID=$ROOT_PARTUUID rw" \
     --quiet || die "Couldn't create boot entry"
 }
 
