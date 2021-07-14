@@ -34,6 +34,13 @@ list_kernels() {
     find -L "/boot" -name "*vmlinuz*" | sed 's/.*z-//'
 }
 
+pick_kernel() {
+    list_kernels
+    printf "Type name of kernel: "
+    read -r TEST_VAR
+    printf "%s\n" "$TEST_VAR"
+}
+
 # Need some way to skip generating a boot entry if overwriting
 name_kernel() {
     [ -e "/boot/System.map" ] || die "System.map not found or already renamed"
@@ -85,6 +92,7 @@ main() {
         "-a") init_kernel "$2"  ;;
         "-l") list_kernels      ;;
         "-r") purge_kernel "$2" ;;
+        "-t") pick_kernel       ;;
           * ) usage             ;;
     esac
 }
