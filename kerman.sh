@@ -21,6 +21,7 @@ kerman - kernel manager
 -a [version] initalize a new kernel(will overwrite)
 -l list all installed kernels
 -r [version] purge a kernel
+-t test interactive mode
 "
 exit 1
 }
