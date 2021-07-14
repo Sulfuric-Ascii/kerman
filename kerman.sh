@@ -31,14 +31,14 @@ die() {
 }
 
 list_kernels() {
-    find -L "/boot" -name "*vmlinuz*" | sed 's/.*z-//'
+    ls /boot/*vmlinuz*
 }
 
 pick_kernel() {
     list_kernels
     printf "Type name of kernel: "
-    read -r TEST_VAR
-    printf "%s\n" "$TEST_VAR"
+    read -r KERNEL
+    return "$KERNEL"
 }
 
 # Need some way to skip generating a boot entry if overwriting
